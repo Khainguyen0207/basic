@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ Arr::get($title, 'title')  }}</title>
+    <title>{{ $title ?? public_path() }}</title>
 
     @include('layouts.partials.styles')
 
