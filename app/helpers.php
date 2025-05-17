@@ -27,3 +27,25 @@ if (! function_exists('admin_template_basic_view')) {
         return $factory->make($view, $data, $mergeData);
     }
 }
+
+if (! function_exists('admin_template_basic_theme')) {
+    function admin_template_basic_theme(string $view): string
+    {
+        return 'admin-template.template-basic.' .$view;
+    }
+}
+
+if (! function_exists('asset_admin')) {
+    /**
+     * Generate an asset path for the application.
+     *
+     * @param string $path
+     * @param bool|null $secure
+     * @return string
+     */
+    function asset_admin(string $path, bool $secure = null): string
+    {
+        $path = 'admin-template/template-basic/' .$path;
+        return app('url')->asset($path, $secure);
+    }
+}

@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'prefix' => 'admin',
+    'prefix' => '/admin',
     'namespace' => 'App\Http\Controllers\Admin',
     'as' => 'admin.',
 ], function () {

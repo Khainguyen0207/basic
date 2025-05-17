@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return admin_template_basic_view('homepage.index');
+        return admin_template_basic_view('dashboard.index');
     }
 }

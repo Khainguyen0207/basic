@@ -7,7 +7,7 @@
     <title>{{ $title ?? public_path() }}</title>
 
     @include('layouts.partials.styles')
-
+    @stack('css')
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/scss/style.scss', 'resources/js/app.js'])
     @endif
@@ -21,6 +21,8 @@
 </main>
 <footer>
     @include('layouts.partials.footer')
+    @stack('footer')
 </footer>
 @include('layouts.footer')
+@stack('footer-libs')
 </html>
