@@ -14,3 +14,5 @@
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}"/>
+
+<script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>

@@ -5,5 +5,14 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
     'as' => 'admin.',
 ], function () {
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/', function () {
+        return redirect()->route('admin.dashboard');
+    });
+
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::resource('customers', 'CustomerController');
+
+    Route::resource('settings', 'SettingController');
 });

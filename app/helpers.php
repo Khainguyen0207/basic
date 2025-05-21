@@ -22,7 +22,7 @@ if (! function_exists('admin_template_basic_view')) {
             return $factory;
         }
 
-        $view = 'admin-template.template-basic.' . $view;
+        $view = 'admin-template.template-basic.pages.' . $view;
 
         return $factory->make($view, $data, $mergeData);
     }
@@ -35,7 +35,7 @@ if (! function_exists('admin_template_basic_theme')) {
     }
 }
 
-if (! function_exists('asset_admin')) {
+if (! function_exists('asset_admin_template_basic')) {
     /**
      * Generate an asset path for the application.
      *
@@ -43,7 +43,7 @@ if (! function_exists('asset_admin')) {
      * @param bool|null $secure
      * @return string
      */
-    function asset_admin(string $path, bool $secure = null): string
+    function asset_admin_template_basic(string $path, bool $secure = null): string
     {
         $path = 'admin-template/template-basic/' .$path;
         return app('url')->asset($path, $secure);

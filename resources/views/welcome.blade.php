@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    <p>This is a content</p>
+    <p>Đây là nội dung</p>
 @endsection

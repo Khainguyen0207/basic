@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    <p>Hello theme</p>
+    <p>Xin chào theme</p>
 @endsection
