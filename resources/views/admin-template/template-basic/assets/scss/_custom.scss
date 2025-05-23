@@ -1,0 +1,133 @@
+// CSS Variables
+$text-color-light: #000000 !default;
+$bg-color-light: #f7f9fc !default;
+$card-bg-light: #ffffff !default;
+$bg-table-color-light: #ffffff !default;
+
+$text-color-dark: #ffffff !default;
+$bg-color-dark: #000000 !default;
+$card-bg-dark: #191c24 !default;
+$bg-table-color-dark: #191c24 !default;
+$text-table-color-dark: #6c7293 !default;
+
+:root.dark {
+    --text-color: #{$text-color-dark};
+    --bg-color: #{$bg-color-dark};
+    --card-bg: #{$card-bg-dark};
+    --bs-body-bg: #{$bg-table-color-dark};
+    --text-table-color: #{$text-table-color-dark};
+    --bs-body-color: #{$text-color-dark};
+}
+
+:root.light {
+    --text-color: #{$text-color-light};
+    --bg-color: #{$bg-color-light};
+    --card-bg: #{$card-bg-light};
+    --bs-body-color: #{$text-color-light};
+    --bs-body-bg: #{$bg-table-color-light};
+}
+
+
+// Element Styles
+body {
+    color: var(--text-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .sun-icon,
+    .moon-icon {
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.3s;
+    }
+}
+
+// Dark mode specific element styles
+html.dark {
+    .dark-mode-toggle {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sun-icon {
+            display: none;
+        }
+
+        .moon-icon {
+            display: block;
+            color: var(--text-color);
+        }
+    }
+}
+
+// Light mode specific element styles
+html.light {
+    .dark-mode-toggle {
+
+        .sun-icon {
+            display: block;
+            color: yellow;
+
+        }
+
+        .moon-icon {
+            display: none;
+        }
+    }
+}
+
+html.dark, html.light {
+
+    .sidebar {
+        background: var(--bs-body-bg);
+    }
+
+    body {
+        .content-wrapper {
+            background: var(--bg-color);
+            color: var(--text-color);
+
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--text-color);
+            }
+
+            .card, .card-body {
+                border-radius: 5px;
+                box-shadow: 0 0 5px 0 #6b6b6b26;
+                color: var(--bs-body-color);
+                background: var(--bs-card-bg);
+                border: none;
+            }
+
+            .form-control {
+                background-color: var(--bs-body-bg);
+
+            }
+
+            table, tr, th, td {
+                color: var(--text-table-color);
+            }
+        }
+    }
+
+    footer {
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
+
+}

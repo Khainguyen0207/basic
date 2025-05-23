@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css')}}">
 <!-- endinject -->
 <!-- Plugin css for this page -->
+<link rel="stylesheet" href="{{asset('assets/libs/bootstrap/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/vendors/jvectormap/jquery-jvectormap.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
@@ -16,3 +17,4 @@
 <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>
 <script src="{{ asset('assets/libs/dataTables/js/dataTables.js') }}"></script>
 <script src="{{ asset('assets/libs/dataTables/js/dataTables.bootstrap5.js') }}"></script>
+<script src="{{ asset('assets/libs/bootstrap/bootstrap.bundle.min.js') }}"></script>
