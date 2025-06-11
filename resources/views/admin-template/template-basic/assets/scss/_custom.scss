@@ -95,6 +95,7 @@ html.dark, html.light {
 
     .sidebar {
         background: var(--bs-body-bg);
+        transition: background-color 0s;
     }
 
     body {
