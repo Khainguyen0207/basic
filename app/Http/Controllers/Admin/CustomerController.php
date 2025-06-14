@@ -3,42 +3,91 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\CustomerRequest;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
     public function index()
     {
-        return admin_template_basic_view('customer.index', ['title' => 'Customer']);
+        return admin_template_basic_view('customer.index', [
+            'title' => 'Customer',
+            'customers' => Customer::all()
+        ]);
     }
 
+    /**
+     * Show the form for creating a new customer.
+     */
     public function create()
     {
-        return admin_template_basic_view('customer.edit', ['title' => 'Edit customer']);
+        $title = 'Create Customer';
+
+        return admin_template_basic_view('customer.create', [
+            'title' => $title,
+        ]);
     }
 
-    public function store(Request $request)
+    /**
+     * Store a newly created customer in storage.
+     */
+    public function store(CustomerRequest $request)
     {
-        dd($request->all());
+        $data = $request->validated();
+
+        Customer::query()->create($data);
+
+        return redirect()->route('admin.customers.index')->with([
+            'success' => 'Customer created successfully.'
+        ]);
     }
 
-    public function show(string $id)
+    /**
+     * Display the specified customer.
+     */
+    public function show(Customer $customer)
     {
-        return admin_template_basic_view('customer.edit', ['title' => 'Edit customer']);
+        return admin_template_basic_view('customer.edit', compact('customer'));
     }
 
-    public function edit(string $id)
+    /**
+     * Show the form for editing the specified customer.
+     */
+    public function edit(Customer $customer)
     {
-        return admin_template_basic_view('customer.edit', ['title' => 'Customer', 'id' => $id]);
+        return admin_template_basic_view('customer.edit', compact('customer'));
     }
 
-    public function update(Request $request, string $id)
+    /**
+     * Update the specified customer in storage.
+     */
+    public function update(CustomerRequest $request, Customer $customer)
     {
-        //
+        $data = $request->validated();
+
+        if ($password = $data['password']) {
+            $customer->password = Hash::make($password);
+        } else {
+            unset($password);
+        }
+
+        $customer->fill($data);
+
+        if ($customer->isDirty()) {
+            $customer->save();
+        }
+
+        return redirect()->route('admin.customers.index')->with([
+            'success' => 'Customer updated successfully.'
+        ]);
     }
 
-    public function destroy(string $id)
+    public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+
+        return redirect()->route('admin.customers.index')->with('success', 'Customer deleted successfully.');
     }
 }

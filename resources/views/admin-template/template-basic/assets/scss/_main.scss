@@ -4,7 +4,7 @@ nav {
         padding: 0 10px;
 
         .nav-link {
-            border-radius: 10px !important ;
+            border-radius: 10px !important;
         }
     }
 }
@@ -50,5 +50,31 @@ nav {
     &.dragging {
         border-color: #2196F3;
         background-color: rgba(33, 150, 243, 0.1);
+    }
+}
+
+nav {
+    ul.pagination {
+        gap: 10px;
+
+        --bs-pagination-border-radius: 10px;
+        --primary-color: #38b6ff;
+
+        li .page-link {
+            border-radius: 5px;
+            background-color: var(--bs-white);
+            color: var(--primary-color);
+
+            &:hover {
+                background-color: var(--primary-color);
+                color: var(--bs-white);
+            }
+        }
+
+        li.active .page-link {
+            border: none;
+            color: var(--bs-white);
+            background-color: var(--primary-color);
+        }
     }
 }

@@ -1,12 +1,13 @@
 @php $active ?? 'dashboard' @endphp
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="{{ route('admin.dashboard') }}"><img
-                src="{{ asset('assets/images/logo.svg') }}"
-                alt="logo"/></a>
+                src="{{ asset('assets/images/default-avatar.png') }}"
+                alt="logo" style="width: auto"></a>
         <a class="sidebar-brand brand-logo-mini" href="{{ route('admin.dashboard') }}"><img
-                src="{{ asset('assets/images/logo-mini.svg')}}"
-                alt="logo"/></a>
+                src="{{ asset('assets/images/default-avatar.png') }}"
+                alt="logo" style="width: auto"/></a>
     </div>
     <ul class="nav">
         <li class="nav-item profile">

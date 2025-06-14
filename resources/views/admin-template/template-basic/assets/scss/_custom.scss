@@ -23,6 +23,7 @@ $text-table-color-dark: #6c7293 !default;
     --text-color: #{$text-color-light};
     --bg-color: #{$bg-color-light};
     --card-bg: #{$card-bg-light};
+    --text-table-color: #{$text-color-light};
     --bs-body-color: #{$text-color-light};
     --bs-body-bg: #{$bg-table-color-light};
 }
@@ -107,12 +108,17 @@ html.dark, html.light {
                 color: var(--text-color);
             }
 
-            .card, .card-body {
-                border-radius: 5px;
-                box-shadow: 0 0 5px 0 #6b6b6b26;
-                color: var(--bs-body-color);
-                background: var(--bs-card-bg);
+            .card {
+                background-color: transparent;
                 border: none;
+
+                .card-body {
+                    border-radius: 5px;
+                    box-shadow: 0 0 5px 0 #6b6b6b26;
+                    color: var(--bs-body-color);
+                    background: var(--bs-card-bg);
+                    border: none;
+                }
             }
 
             .form-control {
@@ -123,6 +129,23 @@ html.dark, html.light {
             table, tr, th, td {
                 color: var(--text-table-color);
             }
+
+        }
+
+        .select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple, .form-control, html.dark body .asColorPicker-input, html.dark body .dataTables_wrapper select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.dark body .select2-container--default .select2-selection--single, html.dark body .select2-container--default .select2-selection--single .select2-search__field, html.dark body .typeahead, html.dark body .tt-query, html.dark body .tt-hint, html.light body .form-control, html.light body .asColorPicker-input, html.light body .dataTables_wrapper select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.light body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.light body .select2-container--default .select2-selection--single, html.light body .select2-container--default .select2-selection--single .select2-search__field, html.light body .typeahead, html.light body .tt-query, html.light body .tt-hint {
+            color: var(--text-color);
+            border: 1px solid var(--text-table-color);
+            background-color: var(--bs-body-bg);
+            background: var(--bs-body-bg);
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: var(--text-color);
+        }
+
+        .modal-content {
+            background-color: white;
+            border: none;
         }
     }
 
@@ -130,5 +153,4 @@ html.dark, html.light {
         background: var(--bg-color);
         color: var(--text-color);
     }
-
 }
