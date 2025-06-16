@@ -156,7 +156,7 @@
                         </div>
                         <canvas id="transaction-history" class="transaction-chart"></canvas>
                         <div
-                            class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                            class="card d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                             <div class="text-md-center text-xl-left">
                                 <h6 class="mb-1">Chuyển đến Paypal</h6>
                                 <p class="text-muted mb-0">07 Tháng 1 2019, 09:12</p>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div
-                            class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                            class="card d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                             <div class="text-md-center text-xl-left">
                                 <h6 class="mb-1">Chuyển đến Stripe</h6>
                                 <p class="text-muted mb-0">07 Tháng 1 2019, 09:12</p>

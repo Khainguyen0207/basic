@@ -1,0 +1,43 @@
+{
+  "resources/views/admin-template/template-basic/assets/js/app.js": {
+    "file": "assets/app-B6FVQGnb.js",
+    "name": "app",
+    "src": "resources/views/admin-template/template-basic/assets/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/views/admin-template/template-basic/assets/js/script.js",
+      "resources/views/admin-template/template-basic/assets/js/button-action.js",
+      "resources/views/admin-template/template-basic/assets/js/table.js",
+      "resources/views/admin-template/template-basic/assets/js/mode.js"
+    ]
+  },
+  "resources/views/admin-template/template-basic/assets/js/button-action.js": {
+    "file": "assets/button-action-BBpola57.js",
+    "name": "button-action",
+    "src": "resources/views/admin-template/template-basic/assets/js/button-action.js",
+    "isDynamicEntry": true
+  },
+  "resources/views/admin-template/template-basic/assets/js/mode.js": {
+    "file": "assets/mode-CM_aHQAB.js",
+    "name": "mode",
+    "src": "resources/views/admin-template/template-basic/assets/js/mode.js",
+    "isDynamicEntry": true
+  },
+  "resources/views/admin-template/template-basic/assets/js/script.js": {
+    "file": "assets/script-CtZ6-JUN.js",
+    "name": "script",
+    "src": "resources/views/admin-template/template-basic/assets/js/script.js",
+    "isDynamicEntry": true
+  },
+  "resources/views/admin-template/template-basic/assets/js/table.js": {
+    "file": "assets/table-DZGlDsOY.js",
+    "name": "table",
+    "src": "resources/views/admin-template/template-basic/assets/js/table.js",
+    "isDynamicEntry": true
+  },
+  "resources/views/admin-template/template-basic/assets/scss/style.scss": {
+    "file": "assets/style-DFcEBEa-.css",
+    "src": "resources/views/admin-template/template-basic/assets/scss/style.scss",
+    "isEntry": true
+  }
+}

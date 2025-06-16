@@ -19,6 +19,5 @@
 <script src="{{ asset('assets/libs/dataTables/js/dataTables.js') }}"></script>
 <script src="{{ asset('assets/libs/dataTables/js/dataTables.bootstrap5.js') }}"></script>
 <script src="{{ asset('assets/libs/bootstrap/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/mode.js') }}"></script>
 <script src="{{ asset('assets/admin/js/form.js') }}"></script>
 <script src="{{ asset('assets/libs/jquery/jquery-3.7.1.min.js') }}"></script>

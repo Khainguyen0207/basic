@@ -1,9 +1,10 @@
-const html = $('html');
 
 // Toggle dark mode
 
 $(document).ready(function () {
     $('#darkModeToggle').on('click', function () {
+        const html = $('html');
+
         if (html.hasClass('dark')) {
             html.removeClass('dark');
             html.addClass('light');

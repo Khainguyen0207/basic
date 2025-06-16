@@ -2,8 +2,12 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "build": "npm run build:admin && npm run build:theme",
+        "dev:admin": "vite --config resources/views/admin-template/vite.config.js",
+        "dev:theme": "vite --config resources/views/theme/vite.config.js",
+        "dev": "npm run dev:admin && npm run dev:theme",
+        "build:admin": "vite build --config resources/views/admin-template/vite.config.js",
+        "build:theme": "vite build --config resources/views/theme/vite.config.js"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

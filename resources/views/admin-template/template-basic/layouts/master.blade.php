@@ -8,17 +8,28 @@
 
     @include(admin_template_basic_theme('layouts.header-admin'))
     @stack('css')
+
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/views/admin-template/template-basic/assets/scss/style.scss', 'resources/views/admin-template/template-basic/assets/js/app.js'])
     @endif
 
+    @php
+        $resource = 'assets/admin-template/';
+        $manifest = json_decode(file_get_contents(public_path($resource . 'manifest.json')), true);
+        $resourceScss = $resource .$manifest['resources/views/admin-template/template-basic/assets/scss/style.scss']['file'] ?? '';
+        $resourceJS = $resource .$manifest['resources/views/admin-template/template-basic/assets/js/app.js']['file'] ?? '';
+    @endphp
+
+    <link rel="stylesheet" href="{{ asset($resourceScss) }}">
 </head>
 <body>
 <div id="validation" class="d-flex flex-column gap-2" style="position: absolute;
     right: 0;
     top: 78px; z-index: 1031">
 </div>
-@include('layouts.toasts')
+<script src="{{ asset($resourceJS) }}" async></script>
+
+@include(admin_template_basic_theme('layouts.toasts'))
 <header>
     @include(admin_template_basic_theme('layouts.partials.header'))
 </header>
@@ -26,22 +37,34 @@
     <div class="container-scroller">
         @include(admin_template_basic_theme('partials.sidebar'))
 
-        <div class="container-fluid page-body-wrapper">
+
+        <div class="container-fluid page-body-wrapper position-relative">
             @include(admin_template_basic_theme('partials.navbar'))
 
-            <div class="main-panel">
+            <div class="main-panel page-loading position-absolute">
+                <section class="w-100">
+                    <div class="container">
+                        <div class="square"></div>
+                        <div class="infinite-scroll"></div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="main-panel" style="display: none">
                 @yield('content')
+
                 @include(admin_template_basic_theme('partials.copyright'))
             </div>
         </div>
     </div>
-</main>cú
+</main>
 <footer>
     @include(admin_template_basic_theme('layouts.footer-admin'))
     @stack('footer')
 </footer>
 </body>
-@include('layouts.footer')
+{{--@include('layouts.footer')--}}
+<script src="{{ asset($resourceJS) }}" async></script>
 </html>
 <!-- Modal -->
 <div class="modal fade" id="modal-confirm-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

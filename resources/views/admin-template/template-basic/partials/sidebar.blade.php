@@ -65,7 +65,7 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Main menu</span>
         </li>
-        <li class="nav-item menu-items mb-2">
+        <li class="nav-item menu-items nav-dashboard mb-2">
             <a class="nav-link" href="{{ route('admin.dashboard') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
@@ -73,7 +73,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        <li class="nav-item menu-items mb-2">
+        <li class="nav-item menu-items nav-customers mb-2">
             <a class="nav-link" href="{{ route('admin.customers.index') }}">
                 <span class="menu-icon">
                   <i class="mdi mdi-account-group"></i>
@@ -81,7 +81,7 @@
                 <span class="menu-title">Customers</span>
             </a>
         </li>
-        <li class="nav-item menu-items mb-2">
+        <li class="nav-item menu-items nav-settings mb-2">
             <a class="nav-link" href="{{ route('admin.settings.index') }}">
                 <span class="menu-icon">
                   <i class="mdi mdi-settings"></i>

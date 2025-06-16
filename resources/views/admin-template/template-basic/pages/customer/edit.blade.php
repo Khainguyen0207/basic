@@ -5,7 +5,8 @@
         <div class="row">
             <h3 class="card-title">Customer Information</h3>
 
-            <div class="form-has-data" id="customer-generate" data-url="{{ route('admin.customers.update', $customer)}}">
+            <div class="form-has-data" id="customer-generate"
+                 data-url="{{ route('admin.customers.update', $customer)}}">
                 @include(admin_template_basic_theme('pages.customer.base-form'))
             </div>
         </div>
