@@ -1,0 +1,15 @@
+{
+    "name": "fogdev-admin",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "bootstrap": "^5.3.3",
+        "sass": "^1.72.0",
+        "compass-mixins": "^0.12.10",
+        "vite": "^6.0.0"
+    }
+}

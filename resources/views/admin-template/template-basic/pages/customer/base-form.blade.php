@@ -1,13 +1,15 @@
 @php
+
     $config = [
         'name' => 'customer',
-        'type' => isset($customer) ? 'edit' : 'create'
+        'action' => isset($customer) ? route('admin.customers.edit', $customer) : route('admin.customers.store'),
+        'method' => isset($customer) ? 'PUT' : 'POST'
     ];
 @endphp
 
-<form class="form-sample col-12" method="POST" action="#" enctype="multipart/form-data"
-      data-bs-target="form-{{$config['name']}}">
-    @method('POST')
+<form class="form-sample col-12" method="POST" action="{{ $config['action'] }}" enctype="multipart/form-data"
+      data-bs-target="form-{{ $config['name'] }}" id="{{$config['name']}}-generate-form">
+    @method($config['method'])
     @csrf
 
     <div class="row flex-row-reverse">
@@ -52,6 +54,10 @@
                                     <label for="password" class="form-label">Mật khẩu</label>
                                     <input type="password" class="form-control" id="password" name="password"
                                            placeholder="Nhập mật khẩu mới">
+                                    <span class="menu-icon position-absolute" data-bs-toggle="togglePassword"
+                                          style="top: 40%; right: 20px;">
+                                        <i class="mdi mdi-eye"></i>
+                                    </span>
                                     <span class="invalid-feedback">Mật khẩu phải có ít nhất 6 ký tự</span>
                                 </div>
                             </div>
@@ -61,6 +67,10 @@
                                     <label for="password_confirmation" class="form-label">Xác nhận mật khẩu</label>
                                     <input type="password" class="form-control" id="password_confirmation"
                                            name="password_confirmation" placeholder="Nhập lại mật khẩu">
+                                    <span class="menu-icon position-absolute" data-bs-toggle="togglePassword"
+                                          style="top: 40%; right: 20px;">
+                                        <i class="mdi mdi-eye"></i>
+                                    </span>
                                     <span class="invalid-feedback">Mật khẩu xác nhận không khớp</span>
                                 </div>
                             </div>
@@ -168,3 +178,17 @@
         $form.find('input[type="hidden"][name="_method"]').val('POST')
     });
 </script>
+
+
+@if($customer)
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const $myVar = @json($customer);
+
+            const $dataForm = $('.form-has-data');
+            const $id = $dataForm.attr('id') + '-form';
+
+            generateForm($myVar, $id)
+        })
+    </script>
+@endif

@@ -7,27 +7,22 @@
     <title>{{ $title ?? public_path() }}</title>
 
     @include(admin_template_basic_theme('layouts.header-admin'))
+
     @stack('css')
 
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/views/admin-template/template-basic/assets/scss/style.scss', 'resources/views/admin-template/template-basic/assets/js/app.js'])
+        @vite([
+            'resources/views/admin-template/template-basic/assets/scss/style.scss',
+            'resources/views/admin-template/template-basic/assets/js/before/app.js',
+            'resources/views/admin-template/template-basic/assets/js/app.js',
+        ])
     @endif
-
-    @php
-        $resource = 'assets/admin-template/';
-        $manifest = json_decode(file_get_contents(public_path($resource . 'manifest.json')), true);
-        $resourceScss = $resource .$manifest['resources/views/admin-template/template-basic/assets/scss/style.scss']['file'] ?? '';
-        $resourceJS = $resource .$manifest['resources/views/admin-template/template-basic/assets/js/app.js']['file'] ?? '';
-    @endphp
-
-    <link rel="stylesheet" href="{{ asset($resourceScss) }}">
 </head>
 <body>
 <div id="validation" class="d-flex flex-column gap-2" style="position: absolute;
     right: 0;
     top: 78px; z-index: 1031">
 </div>
-<script src="{{ asset($resourceJS) }}" async></script>
 
 @include(admin_template_basic_theme('layouts.toasts'))
 <header>
@@ -36,7 +31,6 @@
 <main>
     <div class="container-scroller">
         @include(admin_template_basic_theme('partials.sidebar'))
-
 
         <div class="container-fluid page-body-wrapper position-relative">
             @include(admin_template_basic_theme('partials.navbar'))
@@ -64,7 +58,6 @@
 </footer>
 </body>
 {{--@include('layouts.footer')--}}
-<script src="{{ asset($resourceJS) }}" async></script>
 </html>
 <!-- Modal -->
 <div class="modal fade" id="modal-confirm-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

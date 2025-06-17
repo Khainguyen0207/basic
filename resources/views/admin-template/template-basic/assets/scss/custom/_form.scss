@@ -1,0 +1,22 @@
+// SCSS variable – chỉ khai báo ở cấp cao nhất (global)
+$border-focus: #86b7fe;
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-dropdown,select.form-control,
+.select2-container--default .select2-selection--multiple, .form-control, html.dark body .asColorPicker-input, html.dark body .dataTables_wrapper select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.dark body .select2-container--default .select2-selection--single, html.dark body .select2-container--default .select2-selection--single .select2-search__field, html.dark body .typeahead, html.dark body .tt-query, html.dark body .tt-hint, html.light body .form-control, html.light body .asColorPicker-input, html.light body .dataTables_wrapper select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.light body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.light body .select2-container--default .select2-selection--single, html.light body .select2-container--default .select2-selection--single .select2-search__field, html.light body .typeahead, html.light body .tt-query, html.light body .tt-hint {
+    color: var(--text-color);
+    border: 1px solid var(--text-table-color);
+    background-color: var(--bs-body-bg);
+
+    &:focus {
+        border: 1px solid $border-focus;
+        color: var(--text-color);
+        outline: 0;
+        box-shadow: 0 0 0 .25rem rgba($border-focus, .25);
+    }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--text-color);
+}
+

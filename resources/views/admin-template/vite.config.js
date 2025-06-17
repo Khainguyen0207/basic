@@ -12,9 +12,12 @@ export default defineConfig({
         laravel({
             input: [
                 $assetsAdminTemplate + 'scss/style.scss',
+                $assetsAdminTemplate + 'core/scss/style.scss',
                 $assetsAdminTemplate + 'js/app.js',
+                $assetsAdminTemplate + 'js/before/app.js',
             ],
             refresh: true,
+            publicDirectory: 'public',
         }),
     ],
 });

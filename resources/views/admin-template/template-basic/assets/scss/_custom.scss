@@ -8,7 +8,7 @@ $text-color-dark: #ffffff !default;
 $bg-color-dark: #000000 !default;
 $card-bg-dark: #191c24 !default;
 $bg-table-color-dark: #191c24 !default;
-$text-table-color-dark: #6c7293 !default;
+$text-table-color-dark: $bg-color-light !default;
 
 :root.dark {
     --text-color: #{$text-color-dark};
@@ -93,7 +93,6 @@ html.light {
 }
 
 html.dark, html.light {
-
     .sidebar {
         background: var(--bs-body-bg);
         transition: background-color 0s;
@@ -121,26 +120,10 @@ html.dark, html.light {
                 }
             }
 
-            .form-control {
-                background-color: var(--bs-body-bg);
-
-            }
-
             table, tr, th, td {
                 color: var(--text-table-color);
             }
 
-        }
-
-        .select2-container--default .select2-selection--single, .select2-container--default .select2-dropdown, .select2-container--default .select2-selection--multiple, .form-control, html.dark body .asColorPicker-input, html.dark body .dataTables_wrapper select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.dark body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.dark body .select2-container--default .select2-selection--single, html.dark body .select2-container--default .select2-selection--single .select2-search__field, html.dark body .typeahead, html.dark body .tt-query, html.dark body .tt-hint, html.light body .form-control, html.light body .asColorPicker-input, html.light body .dataTables_wrapper select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], html.light body .jsgrid .jsgrid-table .jsgrid-filter-row select, html.light body .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], html.light body .select2-container--default .select2-selection--single, html.light body .select2-container--default .select2-selection--single .select2-search__field, html.light body .typeahead, html.light body .tt-query, html.light body .tt-hint {
-            color: var(--text-color);
-            border: 1px solid var(--text-table-color);
-            background-color: var(--bs-body-bg);
-            background: var(--bs-body-bg);
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            color: var(--text-color);
         }
 
         .modal-content {
