@@ -19,6 +19,8 @@ class Authentication
         if(Auth::guard('customer')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
             return redirect()->route('admin.dashboard');
         }
+
+        return redirect()->back()->with('error', 'Tài khoản or mật khẩu không chính xác');
     }
 
     public function logout()
