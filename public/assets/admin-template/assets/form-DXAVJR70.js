@@ -1,0 +1,1 @@
+$(document).ready(function(){const e=$("#resort_id"),t=$("#room_amenities"),n=$("#option_success"),o=$("#option_error"),s=$("#general_amenities");e.length&&e.select2(),n.length&&n.select2(),o.length&&o.select2(),s.length&&s.select2(),t.length&&t.select2()});
