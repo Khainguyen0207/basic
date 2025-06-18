@@ -1,6 +1,6 @@
 {
   "resources/views/admin-template/template-basic/assets/js/app.js": {
-    "file": "assets/app-B6FVQGnb.js",
+    "file": "assets/app-Dnt6W7bb.js",
     "name": "app",
     "src": "resources/views/admin-template/template-basic/assets/js/app.js",
     "isEntry": true,
@@ -8,8 +8,16 @@
       "resources/views/admin-template/template-basic/assets/js/script.js",
       "resources/views/admin-template/template-basic/assets/js/button-action.js",
       "resources/views/admin-template/template-basic/assets/js/table.js",
-      "resources/views/admin-template/template-basic/assets/js/mode.js"
+      "resources/views/admin-template/template-basic/assets/js/mode.js",
+      "resources/views/admin-template/template-basic/assets/js/passwordJs.js",
+      "resources/views/admin-template/template-basic/assets/js/form.js"
     ]
+  },
+  "resources/views/admin-template/template-basic/assets/js/before/app.js": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "name": "app",
+    "src": "resources/views/admin-template/template-basic/assets/js/before/app.js",
+    "isEntry": true
   },
   "resources/views/admin-template/template-basic/assets/js/button-action.js": {
     "file": "assets/button-action-BBpola57.js",
@@ -17,10 +25,22 @@
     "src": "resources/views/admin-template/template-basic/assets/js/button-action.js",
     "isDynamicEntry": true
   },
+  "resources/views/admin-template/template-basic/assets/js/form.js": {
+    "file": "assets/form-DXAVJR70.js",
+    "name": "form",
+    "src": "resources/views/admin-template/template-basic/assets/js/form.js",
+    "isDynamicEntry": true
+  },
   "resources/views/admin-template/template-basic/assets/js/mode.js": {
     "file": "assets/mode-CM_aHQAB.js",
     "name": "mode",
     "src": "resources/views/admin-template/template-basic/assets/js/mode.js",
+    "isDynamicEntry": true
+  },
+  "resources/views/admin-template/template-basic/assets/js/passwordJs.js": {
+    "file": "assets/passwordJs-BpLnEm5N.js",
+    "name": "passwordJs",
+    "src": "resources/views/admin-template/template-basic/assets/js/passwordJs.js",
     "isDynamicEntry": true
   },
   "resources/views/admin-template/template-basic/assets/js/script.js": {
@@ -30,13 +50,13 @@
     "isDynamicEntry": true
   },
   "resources/views/admin-template/template-basic/assets/js/table.js": {
-    "file": "assets/table-DZGlDsOY.js",
+    "file": "assets/table-BQuJxWuE.js",
     "name": "table",
     "src": "resources/views/admin-template/template-basic/assets/js/table.js",
     "isDynamicEntry": true
   },
   "resources/views/admin-template/template-basic/assets/scss/style.scss": {
-    "file": "assets/style-DFcEBEa-.css",
+    "file": "assets/style-CTrdwacw.css",
     "src": "resources/views/admin-template/template-basic/assets/scss/style.scss",
     "isEntry": true
   }

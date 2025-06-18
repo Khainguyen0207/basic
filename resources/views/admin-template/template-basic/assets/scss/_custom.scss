@@ -92,18 +92,24 @@ html.light {
     }
 }
 
-html.dark, html.light {
+html body .content-wrapper {
+    background: transparent;
+}
+
+html {
     .sidebar {
         background: var(--bs-body-bg);
-        transition: background-color 0s;
+        transition: background-color .6s;
     }
 
     body {
-        .content-wrapper {
-            background: var(--bg-color);
-            color: var(--text-color);
+        background: var(--bg-color);
+        color: var(--text-color);
+        transition: .1s ease-in-out;
 
-            h1, h2, h3, h4, h5, h6 {
+        .content-wrapper {
+
+            h1, h2, h3, h4, h5, h6, .card-title {
                 color: var(--text-color);
             }
 
@@ -133,7 +139,13 @@ html.dark, html.light {
     }
 
     footer {
-        background: var(--bg-color);
-        color: var(--text-color);
+        background: var(--bg-color) !important;
+        transition: background-color .3s;
+    }
+}
+
+button {
+    &:focus, &:hover {
+        opacity: .8;
     }
 }

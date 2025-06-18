@@ -9,13 +9,8 @@
     @include(admin_template_basic_theme('layouts.header-admin'))
 
     @stack('css')
-
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite([
-            'resources/views/admin-template/template-basic/assets/scss/style.scss',
-            'resources/views/admin-template/template-basic/assets/js/before/app.js',
-            'resources/views/admin-template/template-basic/assets/js/app.js',
-        ])
+    @if (file_exists(public_path('build/admin-template/manifest.json')) || file_exists(public_path('hot')))
+        @vite('resources/views/admin-template/template-basic/assets/js/app.js', 'build/admin-template')
     @endif
 </head>
 <body>
@@ -23,8 +18,6 @@
     right: 0;
     top: 78px; z-index: 1031">
 </div>
-
-@include(admin_template_basic_theme('layouts.toasts'))
 <header>
     @include(admin_template_basic_theme('layouts.partials.header'))
 </header>
@@ -55,6 +48,7 @@
 <footer>
     @include(admin_template_basic_theme('layouts.footer-admin'))
     @stack('footer')
+    @include(admin_template_basic_theme('layouts.toasts'))
 </footer>
 </body>
 {{--@include('layouts.footer')--}}

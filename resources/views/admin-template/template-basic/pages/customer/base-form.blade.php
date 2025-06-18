@@ -1,5 +1,4 @@
 @php
-
     $config = [
         'name' => 'customer',
         'action' => isset($customer) ? route('admin.customers.edit', $customer) : route('admin.customers.store'),
@@ -8,7 +7,7 @@
 @endphp
 
 <form class="form-sample col-12" method="POST" action="{{ $config['action'] }}" enctype="multipart/form-data"
-      data-bs-target="form-{{ $config['name'] }}" id="{{$config['name']}}-generate-form">
+      data-bs-target="form-{{ $config['name'] }}" id="{{ $config['name'] }}-generate-form">
     @method($config['method'])
     @csrf
 
@@ -88,7 +87,7 @@
                                 <div class="form-group mb-3">
                                     <label for="cash" class="form-label">Số dư tài khoản</label>
                                     <input type="number" step="0.01" class="form-control" id="cash" name="cash"
-                                           placeholder="Nhập số dư">
+                                           placeholder="Nhập số dư" value="0">
                                     <span class="invalid-feedback">Vui lòng nhập số dư hợp lệ</span>
                                 </div>
                             </div>
@@ -164,31 +163,32 @@
     </div>
 </form>
 
-<script>
-    $(document).ready(function () {
-        const $formName = @json($config['name']);
-        const $dataForm = $('.form-has-data');
-        const $form = $(`form[data-bs-target="form-${$formName}"]`);
-
-        const $id = $dataForm.attr('id') + '-form';
-        const $dataUrl = $dataForm.attr('data-url');
-
-        $form.attr('action', $dataUrl);
-        $form.attr('id', $id);
-        $form.find('input[type="hidden"][name="_method"]').val('POST')
-    });
-</script>
-
-
-@if($customer)
+@push('footer')
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const $myVar = @json($customer);
-
+        $(function () {
+            const $formName = @json($config['name']);
+            const $method = @json($config['method']);
             const $dataForm = $('.form-has-data');
-            const $id = $dataForm.attr('id') + '-form';
+            const $form = $(`form[data-bs-target="form-${$formName}"]`);
 
-            generateForm($myVar, $id)
-        })
+            const $id = $dataForm.attr('id') + '-form';
+            const $dataUrl = $dataForm.attr('data-url');
+
+            $form.attr('action', $dataUrl);
+            $form.attr('id', $id);
+
+            actionForm($form)
+        });
+
+        @if(isset($customer))
+            $(function () {
+                const $myVar = @json($customer);
+
+                const $dataForm = $('.form-has-data');
+                const $id = $dataForm.attr('id') + '-form';
+
+                generateForm($myVar, $id)
+            });
+        @endif
     </script>
-@endif
+@endpush

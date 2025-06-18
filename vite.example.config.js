@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                $assetsAdminTemplate + 'js/app.js',
+                // $assetsAdminTemplate + 'js/app.js',
             ],
             refresh: true,
         }),

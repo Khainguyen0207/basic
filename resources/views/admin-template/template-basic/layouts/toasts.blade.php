@@ -1,6 +1,3 @@
-@push('css')
-    <script src=""></script>
-@endpush
 @if ($errors->any())
     @foreach ($errors->all() as $errorKey => $errorValue)
         <script>
@@ -11,7 +8,20 @@
 
 @if(session('success'))
     <script>
-        let $message = @json(session('success'));
-        $('#validation').append(showSuccess($message, 'success'));
+        $(function () {
+            let $message = @json(session('success'));
+            $('#validation').append(showSuccess($message, 'success'));
+        })
     </script>
 @endif
+
+<script>
+    $(function () {
+        let $message = sessionStorage.getItem('success')
+
+        if ($message) {
+            $('#validation').append(showSuccess($message, 'success'));
+            sessionStorage.removeItem('success')
+        }
+    })
+</script>

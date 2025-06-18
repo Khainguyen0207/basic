@@ -21,7 +21,7 @@ class CustomerRequest extends FormRequest
             'phone' => 'nullable|string|max:20',
             'password' => 'nullable|string|min:6|confirmed',
             'gender' => 'nullable|in:male,female,other',
-            'cash' => 'nullable|numeric|min:0',
+            'cash' => 'numeric|min:0',
             'address' => 'nullable|string|max:255',
             'birthday' => 'nullable|date',
             'avatar' => 'nullable|image|max:2048',

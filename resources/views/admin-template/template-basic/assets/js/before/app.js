@@ -1,1 +1,2 @@
-import './loading';
+import './loading.js';
+import './functions.js';

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
@@ -39,8 +40,14 @@ class CustomerController extends Controller
 
         Customer::query()->create($data);
 
-        return redirect()->route('admin.customers.index')->with([
-            'success' => 'Customer created successfully.'
+        session()->flash('success', 'Tài khoản được tạo thành công');
+
+        return response()->json([
+            'error' => false,
+            'data' => [
+                'message' => 'Dữ liệu tạo thành công',
+                'nextUrl' => route('admin.customers.index')
+            ]
         ]);
     }
 
@@ -70,7 +77,7 @@ class CustomerController extends Controller
         if ($password = $data['password']) {
             $customer->password = Hash::make($password);
         } else {
-            unset($password);
+            unset($data['password']);
         }
 
         $customer->fill($data);
@@ -79,8 +86,12 @@ class CustomerController extends Controller
             $customer->save();
         }
 
-        return redirect()->route('admin.customers.index')->with([
-            'success' => 'Customer updated successfully.'
+        return response()->json([
+            'error' => false,
+            'data' => [
+                'message' => 'Cập nhật dữ liệu thành công',
+                'nextUrl' => route('admin.customers.index')
+            ]
         ]);
     }
 

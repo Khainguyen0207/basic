@@ -77,4 +77,13 @@ nav {
             background-color: var(--primary-color);
         }
     }
+
+
+}
+
+.navbar .navbar-menu-wrapper .search input {
+    color: var(--white);
+    &:focus {
+        color: var(--white);
+    }
 }
