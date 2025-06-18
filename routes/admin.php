@@ -14,5 +14,15 @@ Route::group([
 
     Route::resource('customers', 'CustomerController');
 
+//    Route::resource('au', 'CustomerController');
+    Route::get('login', function () {
+        return admin_template_basic_view('auth.login');
+    })->name('login');
+
+    Route::get('register', function () {
+        return admin_template_basic_view('auth.register');
+    })->name('register');
+//    Route::get('login', 'CustomerController');
+
     Route::resource('settings', 'SettingController');
 });

@@ -29,12 +29,7 @@
             @include(admin_template_basic_theme('partials.navbar'))
 
             <div class="main-panel page-loading position-absolute">
-                <section class="w-100">
-                    <div class="container">
-                        <div class="square"></div>
-                        <div class="infinite-scroll"></div>
-                    </div>
-                </section>
+                <div class="loader"></div>
             </div>
 
             <div class="main-panel" style="display: none">

@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ $title ?? public_path() }}</title>
-
-    @if (file_exists(public_path('assets/theme/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/views/theme/assets/scss/style.scss', 'resources/views/theme/assets/js/app.js'])
-    @else
-        <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}">
-        <script src="{{ asset('assets/theme/js/app.js') }}" defer></script>
+     @if (file_exists(public_path('build/admin-template/manifest.json')) || file_exists(public_path('hot')))
+        @vite('resources/views/admin-template/template-basic/assets/js/app.js', 'build/admin-template')
     @endif
 
     @include('theme.layouts.partials.styles')
@@ -23,7 +19,6 @@
     <div class="container">
         <div class="row">
             @yield('content')
-
         </div>
     </div>
 </main>

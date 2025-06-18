@@ -14,7 +14,7 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'public/build/admin-template/',
+        outDir: 'public/build/theme',
     },
 });
 

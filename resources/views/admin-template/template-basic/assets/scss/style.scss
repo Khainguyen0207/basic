@@ -1,5 +1,7 @@
+@use 'var';
 @use "custom/form";
-@use 'loading';
 @use 'main';
+@use "auth";
+@use 'loading';
 @use 'responsive';
 @use 'custom';
