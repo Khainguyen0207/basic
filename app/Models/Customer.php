@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use App\Enums\CustomerStatusEnum;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
     protected $table = 'customers';
 

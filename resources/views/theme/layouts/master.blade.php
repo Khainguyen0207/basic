@@ -25,6 +25,7 @@
 <footer>
     @include('theme.layouts.partials.footer')
     @stack('footer')
+    @include('theme.layouts.toasts')
 </footer>
 @include('theme.layouts.footer')
 @stack('footer-libs')

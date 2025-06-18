@@ -3,7 +3,7 @@
 @section('content')
     <section class="login-section" data-bb-toggle="login-modal">
         <div class="login-wrapper mx-auto mt-4">
-            <form action="#" method="post" class="login-form" data-bb-toggle="login-form-toggle">
+            <form action="{{ route('admin.login.authenticate') }}" method="post" class="login-form" data-bb-toggle="login-form-toggle">
                 @csrf
                 <div class="form-header mb-4">
                     <div class="arrow">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="form-input">
-                    <input type="text" name="phone" autocomplete="off" required>
+                    <input type="text" name="email" autocomplete="off" value="tkhai12386@gmail.com" required>
                     <label for="text" class="label-name">
                     <span class="content-name">
                       Email/Phone Number
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-input">
                     <input data-bb-toggle="password-field" type="password" name="password" autocomplete="off"
-                           required>
+                        value="tkhai12386@gmail.com"   required>
                     <label for="password-field" class="label-name">
                         <span class="content-name">
                           Password
@@ -61,11 +61,6 @@
                                  alt="facebook-icon">
                         </button>
                     </div>
-                </div>
-
-                <div class="footer-link">
-                    <a href="{{ route('admin.register') }}" class="fst-italic">Don't have an
-                        account?</a>
                 </div>
             </div>
         </div>

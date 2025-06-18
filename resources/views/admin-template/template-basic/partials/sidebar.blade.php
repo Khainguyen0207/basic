@@ -90,7 +90,7 @@
             </a>
         </li>
         <li class="nav-item menu-items mb-2">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('admin.auth.logout') }}">
                 <span class="menu-icon">
                   <i class="mdi mdi-logout"></i>
                 </span>
