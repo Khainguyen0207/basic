@@ -97,6 +97,11 @@ class CustomerController extends Controller
 
     public function destroy(Customer $customer)
     {
+        if ($customer->getKey() === auth()->guard('customer')->id()) {
+            return redirect()
+                ->route('admin.customers.index')
+                ->withErrors('Customer deleted failed.');
+        }
         $customer->delete();
 
         return redirect()->route('admin.customers.index')->with('success', 'Customer deleted successfully.');

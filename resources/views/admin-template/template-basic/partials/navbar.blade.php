@@ -1,7 +1,11 @@
+@php
+    $user = auth()->guard('customer')->user();
+@endphp
+
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo-mini" href="/"><img src="{{ asset('assets/images/default-avatar.png') }}"
-                                                                       alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/"><img src="{{ asset('assets/images/logo.png') }}"
+                                                              alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -17,49 +21,6 @@
         </ul>
 
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown d-none d-lg-block">
-                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown"
-                   data-toggle="dropdown" aria-expanded="false" href="#">+ Tạo dự án mới</a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                     aria-labelledby="createbuttonDropdown">
-                    <h6 class="p-3 mb-0">Dự án</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-file-outline text-primary"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Phát triển phần mềm</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-web text-info"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Phát triển giao diện</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-layers text-danger"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Kiểm thử phần mềm</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <p class="p-3 mb-0 text-center">Xem tất cả dự án</p>
-                </div>
-            </li>
             <li class="nav-item nav-settings d-none d-lg-block">
                 <a class="nav-link" href="#">
                     <i class="mdi mdi-view-grid"></i>
@@ -162,7 +123,9 @@
             </li>
             <li class="nav-item dropdown border-left">
                 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -173,7 +136,9 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
@@ -182,7 +147,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                     <div class="navbar-profile">
                         <img class="img-xs rounded-circle" src="{{asset('assets/images/default-avatar.png')}}" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ $user->name }}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                     </div>
                 </a>
@@ -190,18 +155,7 @@
                      aria-labelledby="profileDropdown">
                     <h6 class="p-3 mb-0">Hồ sơ</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-settings text-success"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Cài đặt</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
+                    <a class="dropdown-item preview-item" href="{{route('admin.auth.logout')}}">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-logout text-danger"></i>
@@ -212,7 +166,6 @@
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <p class="p-3 mb-0 text-center">Cài đặt nâng cao</p>
                 </div>
             </li>
         </ul>

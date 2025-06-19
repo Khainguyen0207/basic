@@ -11,7 +11,7 @@
 @if(session('success'))
     <script>
         $(function () {
-            $('#validation').append(showSuccess(@json(session('success'), 'success'));
+            $('#validation').append(showSuccess(@json(session('success'), 'success')));
         })
     </script>
 @endif

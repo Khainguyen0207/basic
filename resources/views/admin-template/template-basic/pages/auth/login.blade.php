@@ -1,4 +1,4 @@
-@extends('theme.layouts.master')
+@extends(admin_template_basic_theme('pages.auth.auth-master'))
 
 @section('content')
     <section class="login-section" data-bb-toggle="login-modal">
@@ -11,14 +11,15 @@
                     </div>
 
                     <div class="login-logo">
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo">
+
+                        <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo"></a>
                         <h3 class="fw-bold">Login</h3>
                     </div>
                 </div>
 
                 <div class="form-input">
                     <input type="text" name="email" autocomplete="off" value="tkhai12386@gmail.com" required>
-                    <label for="text" class="label-name">
+                    <label for="text" class="label-name mb-0">
                     <span class="content-name">
                       Email/Phone Number
                     </span>
@@ -27,7 +28,7 @@
                 <div class="form-input">
                     <input data-bb-toggle="password-field" type="password" name="password" autocomplete="off"
                         value="tkhai12386@gmail.com"   required>
-                    <label for="password-field" class="label-name">
+                    <label for="password-field" class="label-name mb-0">
                         <span class="content-name">
                           Password
                         </span>
@@ -57,7 +58,7 @@
                             <img src="{{asset('assets/images/icon-images/google-icon.png')}}" alt="google-icon">
                         </button>
                         <button type="reset" class="facebook-login">
-                            <img src="{{asset('assets/images/icon-images/facebook-icon.png')}}"
+                            <img src="{{asset('assets/images/icon-images/github-icon.png')}}"
                                  alt="facebook-icon">
                         </button>
                     </div>

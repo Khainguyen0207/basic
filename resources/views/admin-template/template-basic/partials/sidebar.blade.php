@@ -1,12 +1,15 @@
-@php $active ?? 'dashboard' @endphp
+@php
+    $active ?? 'dashboard';
+    $user = auth()->guard('customer')->user();
+@endphp
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="{{ route('admin.dashboard') }}"><img
-                src="{{ asset('assets/images/default-avatar.png') }}"
+                src="{{ asset('assets/images/logo.png') }}"
                 alt="logo" style="width: auto"></a>
         <a class="sidebar-brand brand-logo-mini" href="{{ route('admin.dashboard') }}"><img
-                src="{{ asset('assets/images/default-avatar.png') }}"
+                src="{{ asset('assets/images/logo.png') }}"
                 alt="logo" style="width: auto"/></a>
     </div>
     <ul class="nav">
@@ -19,8 +22,8 @@
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                        <span>Gold Member</span>
+                        <h5 class="mb-0 font-weight-normal">{{ $user->name }}</h5>
+                        <span>Hi, {{ $user->name }}</span>
                     </div>
                 </div>
                 <a href="#" id="profile-dropdown" data-toggle="dropdown"><i

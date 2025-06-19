@@ -20,7 +20,7 @@ class Authentication
             return redirect()->route('admin.dashboard');
         }
 
-        return redirect()->back()->with('error', 'Tài khoản or mật khẩu không chính xác');
+        return redirect()->back()->withErrors( 'Tài khoản or mật khẩu không chính xác');
     }
 
     public function logout()

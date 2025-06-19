@@ -1,7 +1,9 @@
 @if ($errors->any())
     @foreach ($errors->all() as $errorKey => $errorValue)
         <script>
-            $('#validation').append(showError(@json($errorValue), @json($errorKey)));
+            $(function () {
+                $('#validation').append(showError(@json($errorValue), @json($errorKey)));
+            })
         </script>
     @endforeach
 @endif
@@ -10,7 +12,8 @@
     <script>
         $(function () {
             let $message = @json(session('success'));
-            $('#validation').append(showSuccess($message, 'success'));
+
+            $('#validation').append(showSuccess($message, 'success'))
         })
     </script>
 @endif

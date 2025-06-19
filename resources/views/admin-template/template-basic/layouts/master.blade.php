@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="validation" class="d-flex flex-column gap-2" style="position: absolute;
-    right: 0;
+    right: 10px;
     top: 78px; z-index: 1031">
 </div>
 <header>
